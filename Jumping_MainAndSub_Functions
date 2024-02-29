@@ -1,0 +1,28 @@
+#Riley McKenzie
+#10/7/23
+
+.data
+str: .asciiz "This is main func!\n"
+str2: .asciiz "This is main func again!\n"
+str3: .asciiz "This is sub func!\n"
+.text
+
+main:
+li $v0, 4
+la $a0, str
+syscall 
+
+jal subfunc
+
+li $v0, 4
+la $a0, str2
+syscall
+
+li $v0, 10
+syscall
+
+subfunc:
+li $v0, 4
+la $a0, str3
+syscall
+jr $ra
